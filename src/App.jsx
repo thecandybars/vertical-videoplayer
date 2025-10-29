@@ -8,6 +8,24 @@ export default function App() {
   const handleVideoEnd = () => {
     setVideoEnded(true);
   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    fetch(
+      "https://docs.google.com/forms/d/e/1FAIpQLSeaPEWmeCuLBPxyybH6kx7yC3_4ZhbqKZHqQKe75vS5Axx8eg/formResponse",
+      {
+        method: "POST",
+        mode: "no-cors", // required to bypass CORS block
+        body: data,
+      }
+    )
+      .then(() => {
+        // setSubmitted(true);
+        form.reset();
+      })
+      .catch((err) => console.error("Error submitting form", err));
+  };
 
   return (
     <div
@@ -28,7 +46,7 @@ export default function App() {
           controls
           autoPlay
           playsInline
-          onEnded={handleVideoEnd}
+          // onEnded={handleVideoEnd}
           style={{
             height: "100%",
             width: "auto",
@@ -46,19 +64,18 @@ export default function App() {
             padding: "1.5rem",
             width: "100%",
             maxWidth: "400px",
-            background: "white",
+            background: "#111",
             borderRadius: "12px",
           }}
-          onSubmit={(e) => {
-            e.preventDefault();
-            alert("Form submitted!");
-          }}
+          onSubmit={handleSubmit}
         >
-          <h2 style={{ textAlign: "center", color: "#333" }}>Contact Us</h2>
+          <h2 style={{ textAlign: "center", color: "Goldenrod" }}>
+            Get in touch
+          </h2>
 
           <input
             type="text"
-            name="name"
+            name="entry.2016981911"
             placeholder="Your Name"
             required
             style={inputStyle}
@@ -66,15 +83,29 @@ export default function App() {
 
           <input
             type="email"
-            name="email"
+            name="entry.1641794978"
             placeholder="Email Address"
             required
             style={inputStyle}
           />
 
+          <input
+            type="number"
+            name="entry.1099332325"
+            placeholder="Phone number"
+            required
+            style={inputStyle}
+          />
+          <input
+            type="text"
+            name="entry.1641794978"
+            placeholder="Organization"
+            style={inputStyle}
+          />
+
           <textarea
-            name="message"
-            placeholder="Message"
+            name="entry.1261567087"
+            placeholder="Your message"
             rows="4"
             required
             style={inputStyle}
@@ -83,13 +114,16 @@ export default function App() {
           <button
             type="submit"
             style={{
-              backgroundColor: "#007bff",
-              color: "#fff",
-              padding: "0.75rem",
-              border: "none",
-              borderRadius: "8px",
-              fontSize: "1rem",
-              cursor: "pointer",
+              borderRadius: "100px",
+              backgroundColor: "Goldenrod",
+              color: "black",
+              textTransform: "none",
+              fontSize: "14px",
+              marginTop: "36px",
+              width: "100%",
+              "&:hover": {
+                backgroundColor: "darkgoldenrod",
+              },
             }}
           >
             Send
@@ -103,6 +137,8 @@ export default function App() {
 const inputStyle = {
   padding: "0.75rem",
   border: "1px solid #ccc",
+  backgroundColor: "#ddd",
+  color: "black",
   borderRadius: "8px",
   fontSize: "1rem",
 };
@@ -142,18 +178,18 @@ const inputStyle = {
 //     marginTop: "8px",
 //     fontSize: "10px",
 //   },
-//   submitButton: {
-//     borderRadius: "100px",
-//     backgroundColor: "Goldenrod",
-//     color: "black",
-//     textTransform: "none",
-//     fontSize: "14px",
-//     // marginTop: "36px",
-//     width: "100%",
-//     "&:hover": {
-//       backgroundColor: "darkgoldenrod",
-//     },
+// submitButton: {
+//   borderRadius: "100px",
+//   backgroundColor: "Goldenrod",
+//   color: "black",
+//   textTransform: "none",
+//   fontSize: "14px",
+//   // marginTop: "36px",
+//   width: "100%",
+//   "&:hover": {
+//     backgroundColor: "darkgoldenrod",
 //   },
+// },
 //   closeButton: {
 //     borderRadius: "100px",
 //     width: "100%",
