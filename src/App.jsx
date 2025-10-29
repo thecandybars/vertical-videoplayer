@@ -98,7 +98,6 @@ function App() {
         sx={{
           width: "100%",
           maxWidth: "450px",
-          height: "100dvh",
           backgroundColor: "white",
         }}
       >
@@ -238,8 +237,13 @@ function App() {
       <video
         ref={videoRef}
         src="https://green-immediate-albatross-200.mypinata.cloud/ipfs/bafybeidhyj7gp2ouzre5iukjn3o6erya72kxkjle62zdhalb7fyp4mlzya"
-        height="100%"
-        width="auto"
+        style={{
+          width: "100%",
+          height: "auto",
+          display: "block",
+          maxHeight: "100dvh",
+          objectFit: "contain",
+        }}
         controls
         playsInline
         autoPlay
