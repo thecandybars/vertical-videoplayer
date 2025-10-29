@@ -373,10 +373,10 @@ function App() {
         playsInline
         autoPlay
         // onPause={() => setVideoState("pause")}
-        // onEnded={() => {
-        //   setOpenContact(true);
-        //   document.exitFullscreen();
-        // }}
+        onEnded={() => {
+          setOpenContact(true);
+          // document.exitFullscreen();
+        }}
       />
     </Box>
   );
