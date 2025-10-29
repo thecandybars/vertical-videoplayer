@@ -224,9 +224,9 @@ function App() {
       ref={containerRef}
       style={{
         width: "100%",
-        height: "90vh",
+        height: "100vh",
         backgroundColor: "black",
-        maxWidth: "450px",
+        // maxWidth: "450px",
         margin: "0 auto",
         color: "white",
         overflow: "hidden",
