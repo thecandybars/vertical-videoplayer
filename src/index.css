@@ -13,17 +13,19 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-#root {
-  max-width: 450px; /* keep the app column constraint here instead */
-  margin: 0 auto;
-  padding: 0; /* avoid extra horizontal padding on small screens */
-}
-
 html,
 body {
   width: 100%;
   max-width: none;
   overflow-x: hidden;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  /* remove: display:flex; place-items:center; */
+  min-width: 320px;
+  min-height: 100dvh; /* was 100vh */
 }
 
 a {

@@ -73,6 +73,21 @@ function App() {
       videoRef.current.pause();
     }
   }, [videoState]);
+  useEffect(() => {
+    const setVh = () => {
+      const h = window.visualViewport
+        ? window.visualViewport.height
+        : window.innerHeight;
+      document.documentElement.style.setProperty("--app-vh", `${h}px`);
+    };
+    setVh();
+    window.addEventListener("resize", setVh);
+    window.addEventListener("orientationchange", setVh);
+    return () => {
+      window.removeEventListener("resize", setVh);
+      window.removeEventListener("orientationchange", setVh);
+    };
+  }, []);
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.currentTarget;
@@ -224,13 +239,12 @@ function App() {
       ref={containerRef}
       style={{
         width: "100%",
-        height: "100vh",
+        height: "var(--app-vh, 100dvh)", // was "100vh"
         backgroundColor: "black",
         maxWidth: "450px",
         margin: "0 auto",
         color: "white",
         overflow: "hidden",
-        // border: "1px solid red",
       }}
     >
       {dialogPause}
