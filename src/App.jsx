@@ -370,13 +370,13 @@ function App() {
           objectFit: "contain",
         }}
         controls
-        // playsInline
+        playsInline
         autoPlay
         // onPause={() => setVideoState("pause")}
-        onEnded={() => {
-          setOpenContact(true);
-          document.exitFullscreen();
-        }}
+        // onEnded={() => {
+        //   setOpenContact(true);
+        //   document.exitFullscreen();
+        // }}
       />
     </Box>
   );
