@@ -241,6 +241,7 @@ function App() {
         height="100%"
         width="auto"
         controls
+        playsInline
         autoPlay
         // onPause={() => setVideoState("pause")}
         onEnded={() => setOpenContact(true)}
