@@ -114,130 +114,232 @@ function App() {
       </Stack>
     </Dialog>
   );
-  const dialogContact = (
-    <Dialog
-      open={openContact}
-      fullScreen={true}
-      container={containerRef.current}
-      onClose={() => {
-        setOpenContact(false);
-        setVideoState("play");
-      }}
-      PaperProps={{
-        sx: {
-          backgroundColor: "transparent",
-          boxShadow: "none",
-          backdropFilter: "blur(8px)",
-          p: 0,
-        },
-      }}
+  const pageContact = (
+    <Box
+      px={12}
+      py={2}
+      sx={{ backgroundColor: "rgba(0,0,0,0.5)", color: "white" }}
     >
-      <Box
-        px={12}
-        py={2}
-        sx={{ backgroundColor: "rgba(0,0,0,0.5)", color: "white" }}
-      >
-        {!submitted && (
-          <Box component="form" onSubmit={handleSubmit}>
-            <Stack
-              gap={0.5}
-              justifyContent="space-between"
-              sx={{
-                width: "100%",
-                height: "90vh",
-                maxWidth: "450px",
-                textAlign: "left",
-              }}
-            >
-              <Stack gap={2}>
-                <Box component="img" src="/cnmh-blanco.svg" height="50px" />
-                <Typography sx={styles.title}>Get in touch!</Typography>
-              </Stack>
-              <Stack gap={1}>
-                <Typography sx={styles.label}>Name*</Typography>
-                <TextField
-                  type="text"
-                  name="entry.2016981911"
-                  required
-                  sx={styles.textfield}
-                />
-              </Stack>
+      {!submitted && (
+        <Box component="form" onSubmit={handleSubmit}>
+          <Stack
+            gap={0.5}
+            justifyContent="space-between"
+            sx={{
+              width: "100%",
+              height: "90vh",
+              maxWidth: "450px",
+              textAlign: "left",
+            }}
+          >
+            <Stack gap={2}>
+              <Box component="img" src="/cnmh-blanco.svg" height="50px" />
+              <Typography sx={styles.title}>Get in touch!</Typography>
+            </Stack>
+            <Stack gap={1}>
+              <Typography sx={styles.label}>Name*</Typography>
+              <TextField
+                type="text"
+                name="entry.2016981911"
+                required
+                sx={styles.textfield}
+              />
+            </Stack>
 
-              <Stack gap={1}>
-                <Typography sx={styles.label}>E-mail*</Typography>
-                <TextField
-                  type="text"
-                  name="entry.1641794978"
-                  required
-                  sx={styles.textfield}
-                />
-              </Stack>
-              <Stack gap={1}>
-                <Typography sx={styles.label}>Phone number</Typography>
-                <Box>
-                  {/* <CountryCodeSelect
+            <Stack gap={1}>
+              <Typography sx={styles.label}>E-mail*</Typography>
+              <TextField
+                type="text"
+                name="entry.1641794978"
+                required
+                sx={styles.textfield}
+              />
+            </Stack>
+            <Stack gap={1}>
+              <Typography sx={styles.label}>Phone number</Typography>
+              <Box>
+                {/* <CountryCodeSelect
                     value="+57"
                     onChange={(code) => console.log("Selected:", code)}
                     sx={styles.textfield}
                   /> */}
-                  <TextField
-                    type="number"
-                    name="entry.1099332325"
-                    sx={styles.textfield}
-                  />
-                </Box>
-              </Stack>
-              <Stack gap={1}>
-                <Typography sx={styles.label}>Organization</Typography>
                 <TextField
-                  type="text"
-                  name="entry.1261567087"
+                  type="number"
+                  name="entry.1099332325"
                   sx={styles.textfield}
                 />
-              </Stack>
-              <Stack gap={1}>
-                <Typography sx={styles.label}>Message*</Typography>
-                <TextField
-                  multiline
-                  type="text"
-                  name="entry.1803492138"
-                  rows={5}
-                  required
-                  maxLength="500"
-                  style={{ resize: "none" }}
-                  sx={styles.textfield}
-                />
-                <Typography sx={styles.caption}>* Required field</Typography>
-              </Stack>
-              <Button
-                variant="contained"
-                type="submit"
-                sx={styles.submitButton}
-              >
-                Send
-              </Button>
+              </Box>
             </Stack>
-          </Box>
-        )}
-        {submitted && (
-          <Box>
-            <Box component="img" src="/mapa-col.svg" />
-            <Typography sx={styles.title}>Thank you!</Typography>
-            <Typography sx={{ marginTop: "8px", fontSize: "12px" }}>
-              Your message has been sent successfully.
-            </Typography>
-            <Button
-              variant="contained"
-              sx={styles.closeButton}
-              onClick={() => setOpenContact(false)}
-            >
-              Close
+            <Stack gap={1}>
+              <Typography sx={styles.label}>Organization</Typography>
+              <TextField
+                type="text"
+                name="entry.1261567087"
+                sx={styles.textfield}
+              />
+            </Stack>
+            <Stack gap={1}>
+              <Typography sx={styles.label}>Message*</Typography>
+              <TextField
+                multiline
+                type="text"
+                name="entry.1803492138"
+                rows={5}
+                required
+                maxLength="500"
+                style={{ resize: "none" }}
+                sx={styles.textfield}
+              />
+              <Typography sx={styles.caption}>* Required field</Typography>
+            </Stack>
+            <Button variant="contained" type="submit" sx={styles.submitButton}>
+              Send
             </Button>
-          </Box>
-        )}
-      </Box>
-    </Dialog>
+          </Stack>
+        </Box>
+      )}
+      {submitted && (
+        <Box>
+          <Box component="img" src="/mapa-col.svg" />
+          <Typography sx={styles.title}>Thank you!</Typography>
+          <Typography sx={{ marginTop: "8px", fontSize: "12px" }}>
+            Your message has been sent successfully.
+          </Typography>
+          <Button
+            variant="contained"
+            sx={styles.closeButton}
+            onClick={() => setOpenContact(false)}
+          >
+            Close
+          </Button>
+        </Box>
+      )}
+    </Box>
   );
+  // const dialogContact = (
+  //   <Dialog
+  //     open={openContact}
+  //     fullScreen={true}
+  //     container={containerRef.current}
+  //     onClose={() => {
+  //       setOpenContact(false);
+  //       setVideoState("play");
+  //     }}
+  //     PaperProps={{
+  //       sx: {
+  //         backgroundColor: "transparent",
+  //         boxShadow: "none",
+  //         backdropFilter: "blur(8px)",
+  //         p: 0,
+  //       },
+  //     }}
+  //   >
+  //     <Box
+  //       px={12}
+  //       py={2}
+  //       sx={{ backgroundColor: "rgba(0,0,0,0.5)", color: "white" }}
+  //     >
+  //       {!submitted && (
+  //         <Box component="form" onSubmit={handleSubmit}>
+  //           <Stack
+  //             gap={0.5}
+  //             justifyContent="space-between"
+  //             sx={{
+  //               width: "100%",
+  //               height: "90vh",
+  //               maxWidth: "450px",
+  //               textAlign: "left",
+  //             }}
+  //           >
+  //             <Stack gap={2}>
+  //               <Box component="img" src="/cnmh-blanco.svg" height="50px" />
+  //               <Typography sx={styles.title}>Get in touch!</Typography>
+  //             </Stack>
+  //             <Stack gap={1}>
+  //               <Typography sx={styles.label}>Name*</Typography>
+  //               <TextField
+  //                 type="text"
+  //                 name="entry.2016981911"
+  //                 required
+  //                 sx={styles.textfield}
+  //               />
+  //             </Stack>
+
+  //             <Stack gap={1}>
+  //               <Typography sx={styles.label}>E-mail*</Typography>
+  //               <TextField
+  //                 type="text"
+  //                 name="entry.1641794978"
+  //                 required
+  //                 sx={styles.textfield}
+  //               />
+  //             </Stack>
+  //             <Stack gap={1}>
+  //               <Typography sx={styles.label}>Phone number</Typography>
+  //               <Box>
+  //                 {/* <CountryCodeSelect
+  //                   value="+57"
+  //                   onChange={(code) => console.log("Selected:", code)}
+  //                   sx={styles.textfield}
+  //                 /> */}
+  //                 <TextField
+  //                   type="number"
+  //                   name="entry.1099332325"
+  //                   sx={styles.textfield}
+  //                 />
+  //               </Box>
+  //             </Stack>
+  //             <Stack gap={1}>
+  //               <Typography sx={styles.label}>Organization</Typography>
+  //               <TextField
+  //                 type="text"
+  //                 name="entry.1261567087"
+  //                 sx={styles.textfield}
+  //               />
+  //             </Stack>
+  //             <Stack gap={1}>
+  //               <Typography sx={styles.label}>Message*</Typography>
+  //               <TextField
+  //                 multiline
+  //                 type="text"
+  //                 name="entry.1803492138"
+  //                 rows={5}
+  //                 required
+  //                 maxLength="500"
+  //                 style={{ resize: "none" }}
+  //                 sx={styles.textfield}
+  //               />
+  //               <Typography sx={styles.caption}>* Required field</Typography>
+  //             </Stack>
+  //             <Button
+  //               variant="contained"
+  //               type="submit"
+  //               sx={styles.submitButton}
+  //             >
+  //               Send
+  //             </Button>
+  //           </Stack>
+  //         </Box>
+  //       )}
+  //       {submitted && (
+  //         <Box>
+  //           <Box component="img" src="/mapa-col.svg" />
+  //           <Typography sx={styles.title}>Thank you!</Typography>
+  //           <Typography sx={{ marginTop: "8px", fontSize: "12px" }}>
+  //             Your message has been sent successfully.
+  //           </Typography>
+  //           <Button
+  //             variant="contained"
+  //             sx={styles.closeButton}
+  //             onClick={() => setOpenContact(false)}
+  //           >
+  //             Close
+  //           </Button>
+  //         </Box>
+  //       )}
+  //     </Box>
+  //   </Dialog>
+  // );
 
   return (
     <Box
@@ -254,7 +356,8 @@ function App() {
       }}
     >
       {dialogPause}
-      {dialogContact}
+      {/* {dialogContact} */}
+      {openContact && pageContact}
       <video
         ref={videoRef}
         src="https://maroon-adequate-trout-940.mypinata.cloud/ipfs/bafybeid2vnvyrt2fuz2ladohdc5zdtuzkba3vecozevprqmy2lmamqu76m"
