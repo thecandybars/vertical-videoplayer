@@ -73,21 +73,6 @@ function App() {
       videoRef.current.pause();
     }
   }, [videoState]);
-  useEffect(() => {
-    const setVh = () => {
-      const h = window.visualViewport
-        ? window.visualViewport.height
-        : window.innerHeight;
-      document.documentElement.style.setProperty("--app-vh", `${h}px`);
-    };
-    setVh();
-    window.addEventListener("resize", setVh);
-    window.addEventListener("orientationchange", setVh);
-    return () => {
-      window.removeEventListener("resize", setVh);
-      window.removeEventListener("orientationchange", setVh);
-    };
-  }, []);
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.currentTarget;
@@ -113,7 +98,7 @@ function App() {
         sx={{
           width: "100%",
           maxWidth: "450px",
-          height: "100vh",
+          height: "100dvh",
           backgroundColor: "white",
         }}
       >
@@ -239,12 +224,13 @@ function App() {
       ref={containerRef}
       style={{
         width: "100%",
-        height: "var(--app-vh, 100dvh)", // was "100vh"
+        height: "100dvh",
         backgroundColor: "black",
-        maxWidth: "450px",
+        // maxWidth: "450px",
         margin: "0 auto",
         color: "white",
         overflow: "hidden",
+        // border: "1px solid red",
       }}
     >
       {dialogPause}
@@ -252,12 +238,16 @@ function App() {
       <video
         ref={videoRef}
         src="https://green-immediate-albatross-200.mypinata.cloud/ipfs/bafybeidhyj7gp2ouzre5iukjn3o6erya72kxkjle62zdhalb7fyp4mlzya"
+        height="100%"
+        width="auto"
         controls
         playsInline
         autoPlay
         // onPause={() => setVideoState("pause")}
         onEnded={() => setOpenContact(true)}
-        style={{ width: "100%", height: "auto", display: "block" }}
+        // onended="videoEnded()"
+        // onpause="videoPaused()"
+        // onplay="videoPlayed()"
       />
     </Box>
   );
