@@ -266,7 +266,7 @@ function App() {
           objectFit: "contain",
         }}
         controls
-        playsInline={!openContact}
+        playsInline
         autoPlay
         // onPause={() => setVideoState("pause")}
         onEnded={() => setOpenContact(true)}
