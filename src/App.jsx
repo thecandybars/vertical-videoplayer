@@ -42,7 +42,7 @@ export default function App() {
       {!videoEnded ? (
         <video
           ref={videoRef}
-          src="https://maroon-adequate-trout-940.mypinata.cloud/ipfs/bafybeid2vnvyrt2fuz2ladohdc5zdtuzkba3vecozevprqmy2lmamqu76m"
+          src="https://maroon-adequate-trout-940.mypinata.cloud/ipfs/bafybeic3fukutdqk4x6pvcn5kfichrmeh7mnk6nbtmi2uh27hga3hclnza"
           controls
           autoPlay
           playsInline
