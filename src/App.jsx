@@ -45,7 +45,7 @@ export default function App() {
           src="https://maroon-adequate-trout-940.mypinata.cloud/ipfs/bafybeic3fukutdqk4x6pvcn5kfichrmeh7mnk6nbtmi2uh27hga3hclnza"
           controls
           autoPlay
-          playsInline
+          // playsInline
           // onEnded={handleVideoEnd}
           style={{
             height: "100%",
