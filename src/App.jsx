@@ -130,6 +130,7 @@ function App() {
               height: "90vh",
               maxWidth: "450px",
               textAlign: "left",
+              overflowY: "auto",
             }}
           >
             <Stack gap={2}>
@@ -369,10 +370,13 @@ function App() {
           objectFit: "contain",
         }}
         controls
-        playsInline
+        // playsInline
         autoPlay
         // onPause={() => setVideoState("pause")}
-        onEnded={() => setOpenContact(true)}
+        onEnded={() => {
+          setOpenContact(true);
+          document.exitFullscreen();
+        }}
       />
     </Box>
   );
