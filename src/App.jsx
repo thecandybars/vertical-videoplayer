@@ -143,16 +143,12 @@ function App() {
               sx={{
                 width: "100%",
                 maxWidth: "450px",
-                height: "100vh",
+                // height: "90vh",
                 textAlign: "left",
               }}
             >
               <Stack gap={2}>
-                <Box
-                  component="img"
-                  src="/public/cnmh-blanco.svg"
-                  height="50px"
-                />
+                <Box component="img" src="/cnmh-blanco.svg" height="50px" />
                 <Typography sx={styles.title}>Contact us</Typography>
               </Stack>
               <Typography sx={styles.label}>Name*</Typography>
@@ -228,7 +224,7 @@ function App() {
       ref={containerRef}
       style={{
         width: "100%",
-        height: "100vh",
+        height: "90vh",
         backgroundColor: "black",
         maxWidth: "450px",
         margin: "0 auto",
