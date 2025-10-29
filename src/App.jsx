@@ -8,10 +8,11 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import CountryCodeSelect from "./CountryCodeSelect";
 
 const styles = {
   textfield: {
-    fontSize: "16px",
+    fontSize: "12px",
     "& .MuiInputBase-root": { p: 0 },
     "& .MuiInputBase-input": {
       p: 0.5,
@@ -20,7 +21,7 @@ const styles = {
     },
   },
   title: {
-    fontSize: "18px",
+    fontSize: "22px",
     fontWeight: "bold",
     color: "Goldenrod",
   },
@@ -38,7 +39,7 @@ const styles = {
     color: "black",
     textTransform: "none",
     fontSize: "14px",
-    marginTop: "36px",
+    // marginTop: "36px",
     width: "100%",
     "&:hover": {
       backgroundColor: "darkgoldenrod",
@@ -116,6 +117,7 @@ function App() {
   const dialogContact = (
     <Dialog
       open={openContact}
+      fullScreen={true}
       container={containerRef.current}
       onClose={() => {
         setOpenContact(false);
@@ -131,7 +133,7 @@ function App() {
       }}
     >
       <Box
-        px={5}
+        px={12}
         py={2}
         sx={{ backgroundColor: "rgba(0,0,0,0.5)", color: "white" }}
       >
@@ -139,55 +141,74 @@ function App() {
           <Box component="form" onSubmit={handleSubmit}>
             <Stack
               gap={0.5}
+              justifyContent="space-between"
               sx={{
                 width: "100%",
+                height: "90vh",
                 maxWidth: "450px",
-                // height: "90vh",
                 textAlign: "left",
               }}
             >
               <Stack gap={2}>
                 <Box component="img" src="/cnmh-blanco.svg" height="50px" />
-                <Typography sx={styles.title}>Contact us</Typography>
+                <Typography sx={styles.title}>Get in touch!</Typography>
               </Stack>
-              <Typography sx={styles.label}>Name*</Typography>
-              <TextField
-                type="text"
-                name="entry.2016981911"
-                required
-                sx={styles.textfield}
-              />
-              <Typography sx={styles.label}>E-mail*</Typography>
-              <TextField
-                type="text"
-                name="entry.1641794978"
-                required
-                sx={styles.textfield}
-              />
-              <Typography sx={styles.label}>Phone number</Typography>
-              <TextField
-                type="text"
-                name="entry.1099332325"
-                sx={styles.textfield}
-              />
-              <Typography sx={styles.label}>Organization</Typography>
-              <TextField
-                type="text"
-                name="entry.1261567087"
-                sx={styles.textfield}
-              />
-              <Typography sx={styles.label}>Message*</Typography>
-              <TextField
-                multiline
-                type="text"
-                name="entry.1803492138"
-                rows={5}
-                required
-                maxLength="500"
-                style={{ resize: "none" }}
-                sx={styles.textfield}
-              />
-              <Typography sx={styles.caption}>* Required field</Typography>
+              <Stack gap={1}>
+                <Typography sx={styles.label}>Name*</Typography>
+                <TextField
+                  type="text"
+                  name="entry.2016981911"
+                  required
+                  sx={styles.textfield}
+                />
+              </Stack>
+
+              <Stack gap={1}>
+                <Typography sx={styles.label}>E-mail*</Typography>
+                <TextField
+                  type="text"
+                  name="entry.1641794978"
+                  required
+                  sx={styles.textfield}
+                />
+              </Stack>
+              <Stack gap={1}>
+                <Typography sx={styles.label}>Phone number</Typography>
+                <Box>
+                  {/* <CountryCodeSelect
+                    value="+57"
+                    onChange={(code) => console.log("Selected:", code)}
+                    sx={styles.textfield}
+                  /> */}
+                  <TextField
+                    type="number"
+                    name="entry.1099332325"
+                    sx={styles.textfield}
+                  />
+                </Box>
+              </Stack>
+              <Stack gap={1}>
+                <Typography sx={styles.label}>Organization</Typography>
+                <TextField
+                  type="text"
+                  name="entry.1261567087"
+                  sx={styles.textfield}
+                />
+              </Stack>
+              <Stack gap={1}>
+                <Typography sx={styles.label}>Message*</Typography>
+                <TextField
+                  multiline
+                  type="text"
+                  name="entry.1803492138"
+                  rows={5}
+                  required
+                  maxLength="500"
+                  style={{ resize: "none" }}
+                  sx={styles.textfield}
+                />
+                <Typography sx={styles.caption}>* Required field</Typography>
+              </Stack>
               <Button
                 variant="contained"
                 type="submit"
@@ -236,7 +257,7 @@ function App() {
       {dialogContact}
       <video
         ref={videoRef}
-        src="https://green-immediate-albatross-200.mypinata.cloud/ipfs/bafybeidhyj7gp2ouzre5iukjn3o6erya72kxkjle62zdhalb7fyp4mlzya"
+        src="https://maroon-adequate-trout-940.mypinata.cloud/ipfs/bafybeid2vnvyrt2fuz2ladohdc5zdtuzkba3vecozevprqmy2lmamqu76m"
         style={{
           width: "100%",
           height: "auto",
@@ -245,13 +266,10 @@ function App() {
           objectFit: "contain",
         }}
         controls
-        playsInline
+        playsInline={!openContact}
         autoPlay
         // onPause={() => setVideoState("pause")}
         onEnded={() => setOpenContact(true)}
-        // onended="videoEnded()"
-        // onpause="videoPaused()"
-        // onplay="videoPlayed()"
       />
     </Box>
   );
