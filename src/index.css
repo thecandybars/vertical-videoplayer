@@ -11,8 +11,19 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  max-width: 450px;
+}
+
+#root {
+  max-width: 450px; /* keep the app column constraint here instead */
   margin: 0 auto;
+  padding: 0; /* avoid extra horizontal padding on small screens */
+}
+
+html,
+body {
+  width: 100%;
+  max-width: none;
+  overflow-x: hidden;
 }
 
 a {

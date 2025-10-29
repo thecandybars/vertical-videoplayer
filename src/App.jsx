@@ -226,7 +226,7 @@ function App() {
         width: "100%",
         height: "100vh",
         backgroundColor: "black",
-        // maxWidth: "450px",
+        maxWidth: "450px",
         margin: "0 auto",
         color: "white",
         overflow: "hidden",
@@ -238,16 +238,12 @@ function App() {
       <video
         ref={videoRef}
         src="https://green-immediate-albatross-200.mypinata.cloud/ipfs/bafybeidhyj7gp2ouzre5iukjn3o6erya72kxkjle62zdhalb7fyp4mlzya"
-        height="100%"
-        width="auto"
         controls
         playsInline
         autoPlay
         // onPause={() => setVideoState("pause")}
         onEnded={() => setOpenContact(true)}
-        // onended="videoEnded()"
-        // onpause="videoPaused()"
-        // onplay="videoPlayed()"
+        style={{ width: "100%", height: "auto", display: "block" }}
       />
     </Box>
   );
