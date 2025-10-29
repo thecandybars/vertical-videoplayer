@@ -11,7 +11,7 @@ import {
 
 const styles = {
   textfield: {
-    fontSize: "12px",
+    fontSize: "16px",
     "& .MuiInputBase-root": { p: 0 },
     "& .MuiInputBase-input": {
       p: 0.5,
