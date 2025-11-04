@@ -5,7 +5,7 @@ export default function App() {
     <div
       style={{
         height: "100vh",
-        width: "100vw",
+        // width: "100vw",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -24,7 +24,7 @@ export default function App() {
           width: "auto",
           maxHeight: "100vh",
           maxWidth: "100vw",
-          objectFit: "cover",
+          // objectFit: "cover",
         }}
       />
     </div>
